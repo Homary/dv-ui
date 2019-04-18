@@ -1,0 +1,60 @@
+@import './base.less';
+
+.dv-input {
+	position: relative;
+	width: 100%;
+
+	> input {
+		width: 100%;
+		background: @themeColor;
+		height: 30px;
+		display: inline-block;
+		border: 1px solid @themeBorderColor;
+		box-sizing: border-box;
+		text-indent: 5px;
+		color: @themeFontColor;
+		font-size: @themeFontSize;
+		margin: 0;
+		vertical-align: top;
+		border-radius: 3px;
+		&:disabled {
+			background-color: #f5f7fa;
+			border-color: #e4e7ed;
+			color: #c0c4cc;
+			cursor: not-allowed;
+		}
+	}
+	.dv-input-error__body {
+		position: absolute;
+		top: calc(100% + 5px);
+		left: 5px;
+		display: flex;
+		align-items: center;
+		max-width: 200px;
+		height: 30px;
+		padding: 5px;
+		font-size: 12px;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		box-sizing: border-box;
+		background: #fff;
+		z-index: 999;
+		&:before {
+			content: '.';
+			display: block;
+			position: absolute;
+			top: 0;
+			font-size: 0px;
+			border: 10px solid @themeBorderColor;
+			border-color: transparent transparent @themeBorderColor transparent;
+			transform: translate(50%, -90%);
+		}
+		.dv-input-warning {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			margin: 0 5px 0 10px;
+			background: url('./img/warning.png') no-repeat center/100%;
+		}
+	}
+}

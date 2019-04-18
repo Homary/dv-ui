@@ -1,0 +1,87 @@
+@import './base.less';
+
+.dv-select {
+	position: relative;
+	width: 100%;
+
+	.dv-select-input {
+		position: relative;
+
+		> input {
+			width: 100%;
+			background: @themeColor;
+			height: 30px;
+			display: inline-block;
+			border: 1px solid @themeBorderColor;
+			box-sizing: border-box;
+			color: @themeFontColor;
+			margin: 0;
+            vertical-align: top;
+            text-indent: 5px;
+		}
+
+		> i {
+			position: absolute;
+			right: 1px;
+			top: 0px;
+			width: 16px;
+            height: 30px;
+            line-height: 30px;
+		}
+	}
+	.dv-select-list {
+		position: relative;
+		z-index: 10;
+
+		.dv-select-ul {
+			position: absolute;
+			border: 1px solid @themeBorderColor;
+			width: 100%;
+            z-index: 1;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+			background: @themeColor;
+            
+			.dv-select-li {
+                // border: 1px solid rgb(250, 123, 123);
+				height: 30px;
+				position: relative;
+				box-sizing: border-box;
+				padding: 0 16px;
+				display: block;
+				width: 100%;
+				height: 100%;
+                list-style-type: none;
+				white-space: nowrap;
+				overflow-x: hidden;
+				overflow-y: hidden;
+				text-overflow: ellipsis;
+				cursor: pointer;
+				user-select: none;
+
+				> span {
+					user-select: none;
+				}
+
+				&:hover {
+					background: @themeHoverColor;
+				}
+
+				.dv-select-selected-icon {
+					content: '';
+					width: 4px;
+					height: 4px;
+					border-radius: 1px;
+					position: absolute;
+					top: 8px;
+					left: 6px;
+					background: @themeColor;
+				}
+			}
+		}
+	}
+}
+.dv-select-dropmenu-item--select{
+    color: #409EFF !important;
+}
