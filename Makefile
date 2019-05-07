@@ -1,5 +1,5 @@
 new: 
-	node ./build/bin/build-new.js
+	npm run new
 
 dev:
 	npm run dev
