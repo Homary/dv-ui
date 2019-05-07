@@ -1,6 +1,7 @@
 const readline = require('readline');
 const fs = require('fs');
 const Config = require('../config');
+const components = require('../../components.json');
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -27,8 +28,8 @@ rl.on('line', line => {
 			rl.setPrompt('组件路由路径:');
 			break;
 		default:
-            config.path = line;
-            rl.setPrompt('...\n');
+			config.path = line;
+			rl.setPrompt('...\n');
 			rl.close();
 			break;
 	}
@@ -48,72 +49,150 @@ rl.on('line', line => {
 				if (err) throw err;
 
 				fs.writeFile(
-					`${Config.packagesPath}/${config.name}/src/${config.name}.vue`,
+					`${Config.packagesPath}/${config.name}/src/${
+						config.name
+					}.vue`,
 					'<template>\n</template>\n<script>\n</script>\n<style>\n</style>',
 					'utf8',
 					err => {
-                        if (err) throw err;
-                        
-                        console.log('> 成功创建Vue文件');
+						if (err) throw err;
+
+						console.log('> 成功创建Vue文件');
 					}
 				);
-				fs.writeFile(`${Config.packagesPath}/${config.name}/index.js`,
-					`import ${config.name} from './src/${config.name}';
-${config.name}.install = function (Vue) {
-    Vue.component(${config.name}.name, ${config.name});
+				fs.writeFile(
+					`${Config.packagesPath}/${config.name}/index.js`,
+					`import DV${firstUpperCase(config.name)} from './src/${
+						config.name
+					}';
+DV${firstUpperCase(config.name)}.install = function (Vue) {
+    Vue.component(DV${firstUpperCase(config.name)}.name, DV${firstUpperCase(
+						config.name
+					)});
 }
-export default ${config.name};`,
+export default DV${firstUpperCase(config.name)};`,
 					'utf8',
 					err => {
 						if (err) throw err;
-                        
-                        console.log(
-							'> 成功创建index.js'
-						);
-                        
-						fs.readFile(Config.routerPath,'utf8',(err, data) => {
-                            if (err) throw err;
-                            
-							const newRouter = data.replace(/]/,
-							`,{
+
+						console.log('> 成功创建入口文件');
+
+						fs.readFile(Config.routerPath, 'utf8', (err, data) => {
+							if (err) throw err;
+
+							const newRouter = data.replace(
+								/]/,
+								`,{
         path: '${config.path}',
         name: '${config.name}',
         title: '${config.title}',
         component: r =>
             import(
-                /* webpackChunkName: "${config.name}" */ 'ui/docs/${config.name}.md'
+                /* webpackChunkName: "${config.name}" */ 'ui/docs/${
+									config.name
+								}.md'
             ).then(module => {
                 r(module.default);
             })
-    }]`);
-                                
-                                fs.writeFile(Config.routerPath, newRouter, err => {
-                                    if(err) throw err;
+    }]`
+							);
 
-                                    console.log(
-										'> 成功添加路由'
-									);
-                                    fs.writeFile(
-                                        `${Config.docsPath}/${config.name}.md`,
-                                        `## ${config.title}`,
-                                        'utf8',
-                                        err => {
-                                            if (err) throw err;
-    
-                                            console.log(
-												'> 成功创建Markdown文件'
-                                            );
+							fs.writeFile(Config.routerPath, newRouter, err => {
+								if (err) throw err;
+
+								console.log('> 成功添加路由');
+								fs.writeFile(
+									`${Config.docsPath}/${config.name}.md`,
+									`## ${config.title}`,
+									'utf8',
+									err => {
+										if (err) throw err;
+
+										console.log('> 成功创建Markdown文件');
+
+										let indexTpl = '';
+										let componentsTpl = `const components = { \n`;
+
+										for (let name in components) {
+											if (name !== 'index') {
+												indexTpl += `import ${firstUpperCase(
+													name
+												)} from './${name}/index';\n`;
+
+												componentsTpl += `'dv-${name}': ${firstUpperCase(
+													name
+												)},\n`;
+											}
+										}
+
+                                        indexTpl += `import ${firstUpperCase(
+											config.name
+                                        )} from './${config.name}/index';\n\n import './theme-chalk/index'; \n`;
+                                        
+                                        componentsTpl += `'dv-${
+											config.name
+										}': ${firstUpperCase(
+											config.name
+										)} \n} \n`;
+
+										const staticTpl = `
+const dvUi = {
+    ...components,
+}
+
+const install = function (Vue, opts = {}) {
+    Object.keys(dvUi).forEach(key => {
+        Vue.component(key, dvUi[key]);
+    });
+    //定义静态组件
+}
+
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+}
+
+const API = {
+    version: '1.0.0',
+    install,
+    ...components
+}
+
+export default API;`;
+                                        indexTpl = indexTpl + componentsTpl + staticTpl;
+
+                                        fs.writeFile(`${Config.packagesPath}/index.js`, indexTpl, 'utf8', err => {
+                                            if(err) throw err;
+                                            console.log('> 注册组件');
                                             console.log('> 创建成功');
-                                            
+    
                                             process.exit(0);
-                                        }
-                                    );
-                                })
-							}
-						);
+                                        })
+									}
+								);
+							});
+						});
 					}
 				);
 			}
 		);
 	});
 });
+
+function firstUpperCase(str) {
+	str = toHump(str);
+
+	return str.replace(/( |^)[a-z]/g, L => L.toUpperCase());
+}
+
+function toHump(str) {
+	let res = '';
+    let strSplit = str.split('-');
+
+    for (let i = 1; i < strSplit.length; i++) {
+        strSplit[i] = strSplit[i][0].toUpperCase() + strSplit[i].slice(1);
+    }
+    res = strSplit.join('');
+
+    return res;
+}
