@@ -7,8 +7,9 @@ import router from './router/';
 import DVUI from 'ui/packages/';
 Vue.use(DVUI);
 
-// 样式
-import 'highlight.js/styles/color-brewer.css';
+// 引入highlight.js样式,会覆盖code组件里的样式
+// import 'highlight.js/styles/color-brewer.css';
+
 import './styles/';
 
 // md外层组件

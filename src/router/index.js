@@ -90,25 +90,17 @@ const router = new VueRouter({
 					r(module.default);
 				})
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-	]
-=======
 	,{
-        path: '/code',
-        name: 'code',
-        title: 'Code 代码框',
+        path: '/json-editor',
+        name: 'json-editor',
+        title: 'Json 编辑框',
         component: r =>
-            import(
-                /* webpackChunkName: "code" */ 'ui/docs/code.md'
+            import( 
+                /* webpackChunkName: "json-editor" */ 'ui/docs/json-editor.md'
             ).then(module => {
                 r(module.default);
             })
     }]
->>>>>>> dev
-=======
-	]
->>>>>>> ba0fde5aae9a30c6d19ef1d4aeb638d16ca940d7
 });
 
 export default router;
