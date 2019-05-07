@@ -31,7 +31,7 @@ export default {
 	}
 	.main {
 		flex: 1 1 75%;
-        padding: 30px 5vw 0 0;  
+        padding: 30px 5vw 0 5vw;  
         margin-bottom: 10vh;
         box-sizing: border-box;
 	}

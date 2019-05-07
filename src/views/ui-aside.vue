@@ -26,7 +26,7 @@ export default {
 
 <style lang="less">
 .ui-aside {
-	width: 20vw;
+	min-width: 20vw;
 	.aside-menu-wrap {
 		display: flex;
 		flex-direction: column;
