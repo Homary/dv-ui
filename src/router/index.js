@@ -100,7 +100,17 @@ const router = new VueRouter({
             ).then(module => {
                 r(module.default);
             })
-    }]
+    },{
+                                    path: '/code',
+                                    name: 'code-editor',
+                                    title: 'Code 编辑器',
+                                    component: r =>
+                                        import(
+                                            /* webpackChunkName: "code-editor" */ 'ui/docs/code-editor.md'
+                                        ).then(module => {
+                                            r(module.default);
+                                        })
+                                }]
 });
 
 export default router;
