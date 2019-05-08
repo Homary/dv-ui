@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VuePlugin = require('vue-loader/lib/plugin');
 const path = require('path');
 
 module.exports = {
@@ -15,6 +16,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     },
@@ -32,10 +37,11 @@ module.exports = {
 				}
 			],
 			filename: 'index.html'
-		})
+        }),
+        new VuePlugin()
 	],
 	devServer: {
-		contentBase: path.resolve(__dirname, '../lib/test/'),
+		contentBase: path.resolve(__dirname, '../lib/'),
 		port: 8099
     },
     resolve: {
