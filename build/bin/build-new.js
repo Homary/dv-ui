@@ -42,7 +42,10 @@ rl.on('line', line => {
 			console.log('\033[36m 组件名已存在 \033[39m\n');
 			process.exit(0);
 		}
-
+        if (!config.name || config.name.length === 0) {
+            console.log('\n\033[36m 组件名不能为空 \033[39m\n');
+            process.exit(0);
+        }
 		// 创建.vue文件
 		fs.mkdir(
 			`${Config.packagesPath}/${config.name}/src`,
