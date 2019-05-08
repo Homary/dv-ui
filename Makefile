@@ -1,3 +1,5 @@
+.PHONY: test
+
 new: 
 	npm run new
 

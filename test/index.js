@@ -1,10 +1,12 @@
 import Vue from 'vue';
 
-import DvUI from 'dv-ui';
+import DvUI from 'lib/index.js';
 Vue.use(DvUI);
-import 'dv-ui/theme-chalk/index.css';
+import 'lib/theme-chalk/index.css';
+
+import View from './test.vue';
 
 new Vue({
     el: '#app',
-    render: h => h('dv-button', {}, 'Hello World')
+    render: h => h(View)
 })
