@@ -1708,11 +1708,22 @@
 .dv-code-editor .vue-codemirror-wrap .CodeMirror {
   height: 100%;
 }
-.dv-json-editor--default .hljs {
+.common-hljs {
   display: block;
+  width: 100%;
+  height: 100%;
   overflow-x: auto;
   padding: 0.5em;
+  box-sizing: border-box;
+}
+.dv-json-editor--default .hljs {
   background: #f0f0f0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  padding: 0.5em;
+  box-sizing: border-box;
 }
 .dv-json-editor--default .hljs,
 .dv-json-editor--default .hljs-subst {
@@ -1776,8 +1787,11 @@
 }
 .dv-json-editor--monokai .hljs {
   display: block;
+  width: 100%;
+  height: 100%;
   overflow-x: auto;
   padding: 0.5em;
+  box-sizing: border-box;
   background: #272822;
   color: #ddd;
 }
@@ -1834,31 +1848,13 @@
 .dv-json-editor--monokai .hljs .hljs-selector-id {
   font-weight: bold;
 }
-.dv-json-editor--atom-one-light {
-  /*
-
-Atom One Light by Daniel Gamage
-Original One Light Syntax theme from https://github.com/atom/one-light-syntax
-
-base:    #fafafa
-mono-1:  #383a42
-mono-2:  #686b77
-mono-3:  #a0a1a7
-hue-1:   #0184bb
-hue-2:   #4078f2
-hue-3:   #a626a4
-hue-4:   #50a14f
-hue-5:   #e45649
-hue-5-2: #c91243
-hue-6:   #986801
-hue-6-2: #c18401
-
-*/
-}
 .dv-json-editor--atom-one-light .hljs {
   display: block;
+  width: 100%;
+  height: 100%;
   overflow-x: auto;
   padding: 0.5em;
+  box-sizing: border-box;
   color: #383a42;
   background: #fafafa;
 }
