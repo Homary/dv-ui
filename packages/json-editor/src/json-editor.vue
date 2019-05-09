@@ -1,5 +1,5 @@
 <template>
-	<div class="dv-json-editor" ref="dv-json-editor">
+	<div :class="['dv-json-editor', 'dv-json-editor--' + theme]" ref="dv-json-editor">
 		<pre
 			v-highlightjs
 			:id="id"
@@ -33,7 +33,7 @@ export default {
 		},
 		theme: {
 			type: String,
-			default: 'atom-one-light'
+			default: 'default'
 		},
 		value: [String, Object, Array]
 	},
@@ -41,9 +41,6 @@ export default {
 		return {
 			id: 'id' + String(Math.random()).slice(2, 8)
 		};
-	},
-	mounted() {
-		import(`highlight.js/styles/${this.theme}.css`);
 	},
 	methods: {
 		contentChange(event) {

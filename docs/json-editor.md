@@ -8,6 +8,10 @@
 
 ```html
 <dv-json-editor v-model="testData" theme="atom-one-light"></dv-json-editor>
+<br />
+<dv-json-editor v-model="testData" theme="monokai"></dv-json-editor>
+<br />
+<dv-json-editor v-model="testData"></dv-json-editor>
 <script>
 export default {
 data() {
@@ -34,14 +38,10 @@ data() {
 ### Attributes 
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |--------|--------   |---------- |-------------  |-------- |
-| value/v-model   | JSON数据 | string | object | array | — | — | 
-| theme   | 样式主题  | string    | 支持 highlight.js 所有样式,暂时无法同时使用两个不同的主题 | atom-one-light |  
+| value/v-model   | JSON数据 | string / object / array | — | — | 
+| theme   | 样式主题  | string    | default / atom-one-light / monokai | default |  
 
 ### Events 
 | 事件名称 | 说明 | 回调参数 |
 |---------|--------|---------|
 | change | 在值改变时并且符合 JSON 格式时触发 |  改变后的值, 组件根节点  |
-
-#### highlight样式  
-
-https://highlightjs.org/static/demo/

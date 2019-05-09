@@ -30,6 +30,5 @@ webpackConfig
         ])
         .end()
     .plugin('mini-css-extract')
-        .use(require('mini-css-extract-plugin'), [{filename: 'theme-chalk/index.css'}])
-    
+        .use(require('mini-css-extract-plugin'), [{filename: 'theme-chalk/index.css'}]); 
 module.exports = webpackConfig.toConfig(); 

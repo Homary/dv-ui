@@ -1,24 +1,24 @@
 {
-  "name": "dv-ui",
-  "version": "1.0.1",
-  "description": "Vue UI库",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Homary/dv-ui.git"
-  },
-  "keywords": [
-    "Vue",
-    "UI",
-    "dv-ui"
-  ],
-  "author": "Homary",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Homary/dv-ui/issues"
-  },
-  "homepage": "https://github.com/Homary/dv-ui#readme"
+	"name": "dv-ui",
+	"version": "1.0.1",
+	"description": "Vue UI库",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Homary/dv-ui.git"
+	},
+	"keywords": [
+		"Vue",
+		"UI",
+		"dv-ui"
+	],
+	"author": "Homary",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Homary/dv-ui/issues"
+	},
+	"homepage": "https://github.com/Homary/dv-ui#readme"
 }
