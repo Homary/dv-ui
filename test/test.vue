@@ -1,7 +1,7 @@
 <template>
 	<div class="test">
 		<dv-json-editor v-model="val" class="json"></dv-json-editor>
-        <dv-json-editor v-model="val" theme="monokai"></dv-json-editor>
+        <dv-json-editor v-model="val" theme="monokai" class="json"></dv-json-editor>
 		<dv-code-editor class="code"
 			v-model="code"
 			mode="vue"

@@ -2460,9 +2460,9 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     stream-shift "^1.0.0"
 
 dv-ui@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dv-ui/-/dv-ui-1.0.1.tgz#3543a8c024d8b2e8e71a3d1c575c7947d0660358"
-  integrity sha512-Kog52W7jaQ1BcDn8ACELgrUKwsec/pz0Nr7eqA3Ik46PvYjS2Ne7EAUnc75/F0QhcDnqdszu7Pudh0/ipKTdKA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/dv-ui/-/dv-ui-1.0.3.tgz#f32d0ee9a5b96560a0b2fab11ed1765b12a4217a"
+  integrity sha512-uIVjZTlc69hgkx8GJcD40KlacbvJ+OufZZPNT2eRRXtUBNnq1jF59gizgIBHrE4mmv7H6v8Vf7BNtUIdM2pWbw==
 
 each-props@^1.3.0:
   version "1.3.2"

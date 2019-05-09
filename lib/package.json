@@ -1,6 +1,6 @@
 {
 	"name": "dv-ui",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "Vue UI库",
 	"main": "index.js",
 	"scripts": {
