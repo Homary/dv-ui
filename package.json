@@ -9,7 +9,8 @@
 		"new": "node build/bin/build-entry.js && node ./build/bin/build-new.js",
 		"theme": "gulp --gulpfile build/gulp.theme.js",
 		"dist": "npm run theme && node build/bin/build-entry.js && webpack --config build/dist.js --progress",
-		"test": "npm run theme && npm run dist && webpack-dev-server --open --config build/test.js --colors --progress"
+        "test": "npm run theme && npm run dist && webpack-dev-server --open --config build/test.js --colors --progress",
+        "run-test": "webpack-dev-server --open --config build/test.js --colors --progress"
 	},
 	"author": "",
 	"license": "ISC",

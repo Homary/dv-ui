@@ -1,6 +1,8 @@
 # self
 /node_modules
 /dist
+/lib/*.js
+/lib/theme-chalk
 
 .DS_Store
 node_modules

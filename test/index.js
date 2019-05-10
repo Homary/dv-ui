@@ -1,10 +1,13 @@
 import Vue from 'vue';
 
-import DvUI from 'lib/index.js';
+import DvUI from './tester/dvui.js';
 Vue.use(DvUI);
-import 'lib/theme-chalk/index.css';
+import './tester/dvui.css';
 
 import View from './test.vue';
+
+console.log(DvUI);
+
 
 new Vue({
     el: '#app',
