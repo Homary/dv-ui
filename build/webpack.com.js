@@ -1,7 +1,7 @@
 const path = require('path');
 const webpackChain = require('webpack-chain');
 const webpackConfig = new webpackChain();
-const Config = require('./config');
+const Config = require('./config.path');
 
 // module.rules
 webpackConfig.module

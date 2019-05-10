@@ -1,5 +1,5 @@
 const webpackConfig = require('./webpack.com');
-const Config = require('./config');
+const Config = require('./config.path');
 const path = require('path');
 
 // entry output devtool mode
