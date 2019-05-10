@@ -1,7 +1,7 @@
 const webpackConfig = require('./webpack.com');
 const entrys = require('../components.json');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const Config = require('./config');
+const Config = require('./config.path');
 
 webpackConfig.mode('production');
 

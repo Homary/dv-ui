@@ -1,6 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
-const Config = require('../config');
+const Config = require('../config.path');
 const components = require('../../components.json');
 
 const rl = readline.createInterface({

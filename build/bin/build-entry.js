@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const Config = require('../config');
+const Config = require('../config.path');
 
 const packagesPath = Config.packagesPath;
 
