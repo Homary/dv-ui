@@ -7,7 +7,7 @@ const libPath = resolve('../lib/');
 const tplPath = resolve('../dvui.html');
 const distPath = resolve('../dist/');
 const docsPath = resolve('../docs/');
-const uiPath = resolve('../../ui/');
+const uiPath = resolve('../../dv-ui/');
 
 function resolve(p) {
    return path.resolve(__dirname, p)
